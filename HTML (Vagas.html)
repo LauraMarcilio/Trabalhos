@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    
+    <link rel="stylesheet" href="tiaw.2.css">
+    <link rel="stylesheet" href="css/button.css">
+    <link rel="stylesheet" href="css/records.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <script src="java.3.js" defer></script>
+    <title>Nova vaga</title>
+    
+</head>
+
+<body>
+    <nav class="navbar .navbar-nav .nav-item .nav-link .material-icons">
+        <!--Quando eu coloco o header ele fica grande e as letras ficam umas em baixo das outras, talvez se eu colocar um p-->
+        <div class="container px-lg-5">
+                <a class="navbar-brand" img scr="#"></a>
+                <a class="nav-link active" aria-current="page" href="http://127.0.0.1:5501/.vscode/TIAW.html">Perfil</a></li> <!--PAGINA ATIVA-->
+                <a class="nav-link" href="http://127.0.0.1:5501/.vscode/TIAW.html">Pagina inicial</a></li>
+                <a class="nav-link" href="https://www.youtube.com/watch?v=o0LaNit1ts8">Chat</a></li>
+                <a class="nav-link" href="#!">Forúm</a></li></a>
+        </div>
+        
+    </nav>
+    <main>
+        <button type="button" class="button blue mobile" id="cadastrarCliente">Cadastrar Vaga</button>
+        <table id="tableClient" class="records">
+            <thead>
+                <tr>
+                    <th>Sobre a vaga</th>
+                    <th>E-mail</th>
+                    <th>Requisitos</th>
+                    <th>Número de vagas</th>
+                    <th>Ação</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        
+        <div class="modal" id="modal">
+            <div class="modal-content">
+                <header class="modal-header">
+                    <h2>Nova Vaga</h2>
+                    <span class="modal-close" id="modalClose">&#10006;</span>
+                </header>
+                <form id="form" class="modal-form">
+                    <input type="text" id="nome" data-index="new" class="modal-field" placeholder="sobre a vaga"
+                        required>
+                    <input type="email" id="email" class="modal-field" placeholder="e-mail" required>
+                    <input type="text" id="celular" class="modal-field" placeholder="requisitos" required>
+                    <input type="number" id="cidade" class="modal-field" placeholder="número de vagas" required>
+                </form>
+                <footer class="modal-footer">
+                    <button id="salvar" class="button green">Salvar</button>
+                    <button id="cancelar" class="button blue">Cancelar</button>
+                </footer>
+            </div>
+        </div>
+    </main>
+    
+</body>
+
+</html>
