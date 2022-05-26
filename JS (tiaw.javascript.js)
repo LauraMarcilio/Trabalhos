@@ -1,0 +1,166 @@
+/*INICIO JS DE ADICIONAR VAGA*/
+class Produto {
+
+    constructor() {
+        this.id = 1;
+        this.arrayLaura = [];
+        this.editId = null;
+        
+    } 
+    salvar() {
+     let produto = this.lerDados();
+  
+     if(this.validaCampos(produto)) {
+       if (this.editId == null){
+        this.adicionar(produto);
+       } else {
+        this.atualizar(this.editId, produto);
+      }
+  
+       }
+  
+     this.listaTabela();
+     this.cancelar();
+     
+    }
+  
+    listaTabela() {
+        let tbody = document.getElementById('tbody');
+  
+        tbody.innerText = '';
+  
+        for(let i =0; i< this.arrayLaura.length; i++){
+             let tr = tbody.insertRow();
+  
+             let td_id = tr.insertCell();
+             let td_vaga = tr.insertCell(); //estava nome depois do td
+             let td_valor = tr.insertCell();
+             let td_inf = tr.insertCell();
+             let td_acoes = tr.insertCell();
+  
+             td_id.innerText = this.arrayLaura[i].id;
+             td_vaga.innerText = this.arrayLaura[i].nomeVaga;
+             td_valor.innerText = this.arrayLaura[i].valor;
+             td_inf.innerText = this.arrayLaura[i].inf;
+        
+             td_id.classList.add('center');
+             td_vaga.classList.add('center');
+             td_valor.classList.add('center');
+             td_inf.classList.add('center');
+             td_acoes.classList.add('center');
+  
+             let imgEdit = document.createElement('img');
+             imgEdit.src = 'editar.png';
+             imgEdit.setAttribute("onclick", "produto.preparaEditacao("+ JSON.stringify(this.arrayLaura[i]) +")");
+  
+             let imgDelete = document.createElement('img');
+             imgDelete.src = 'apagar.png';
+             imgDelete.setAttribute("onclick", "produto.deletar("+ this.arrayLaura[i].id +")");
+             
+  
+             td_acoes.appendChild(imgEdit);
+             td_acoes.appendChild(imgDelete);
+             /*aqui ta o botão de editar mas la em baixo ele vai estar como apagar*/
+             
+  
+         }
+    }
+  
+  
+    adicionar(produto) {
+     produto.inf = parseFloat(produto.inf)
+     this.arrayLaura.push(produto);
+     this.id++;
+  
+    }
+  
+    atualizar(id, produto) {
+      for (let i = 0; i < this.arrayLaura.length; i++) {
+        if(this.arrayLaura[i].id == id) {
+          this.arrayLaura[i].nomeVaga = produto.nomeVaga;
+          this.arrayLaura[i].valor = produto.valor;
+          this.arrayLaura[i].inf = produto.inf;
+        }
+      
+      }
+    }
+  
+    preparaEditacao(dados) {
+        this.editId = dados.id;
+  
+        document.getElementById('vaga').value = dados.nomeVaga;
+        document.getElementById('valor').value = dados.valor;
+        document.getElementById('inf').value = dados.inf;
+  
+        document.getElementById('bnt1').innerText = 'Atualizar';
+    }
+  
+    lerDados() {
+     let produto = {}
+  
+          produto.id = this.id;
+          produto.nomeVaga = document.getElementById('vaga').value;
+          produto.valor = document.getElementById('valor').value;   //ali em id é o valor
+          produto.inf = document.getElementById('inf').value;
+          return produto;
+    }
+  
+    validaCampos(produto) {
+     let msg = '';
+  
+      if(produto.nomeVaga == ''){
+         msg += '- Informe a descrição da vaga \n';
+  
+      }
+  
+      if(produto.valor == '') {
+         msg += '- Informe os requisitos da vaga\n';
+  
+      }
+  
+      if(produto.inf == '') {
+         msg += '- Informe as informações da vaga \n';
+  
+      }
+  
+      if(msg != '') {
+          alert(msg);
+          return false
+      }
+  
+      return true;
+  
+    }
+  
+    cancelar() { //limpa os campos
+     document.getElementById('vaga').value = '';
+     document.getElementById('valor').value = '';
+     document.getElementById('inf').value = '';
+       
+     document.getElementById('btn1').innerText = 'Salvar';
+     this.editId = null;
+  
+    }
+  
+    deletar(id) {
+  
+      if(confirm('Você está deletando a vaga' + id )) { //ta ficando estranha a mensagem que aparece
+  
+        let tbody = document.getElementById('tbody');
+  
+  
+         for(let i = 0; i < this.arrayLaura.length; i++){
+             if(this.arrayLaura[i].id == id){
+                 this.arrayLaura.splice(i, 1);
+                 tbody.deleteRow(i);
+             }
+         }
+         console.log(this.arrayLaura);
+      }
+    }
+  }
+  
+  var produto = new Produto();
+  
+  
+  /*FINAL DO JS DE VAGAS. DE CADASTRAR UMA VAGA NOVA*/
