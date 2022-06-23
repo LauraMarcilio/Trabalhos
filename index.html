@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cadastro de Vagas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vagas.css">
+	<link rel ="shortcut icon" href="https://www.pngmart.com/files/5/Work-PNG-Transparent.png">
+</head>
+
+<body onload="init()">
+    <nav class="navbar .navbar-nav .nav-item .nav-link .material-icons">
+        <!--Quando eu coloco o header ele fica grande e as letras ficam umas em baixo das outras, talvez se eu colocar um p-->
+        <div class="container px-lg-5">
+                <img src="inprego.png" class="logo">
+                <a class="nav-link active" aria-current="page" href="perfil.html">Perfil</a></li> <!--PAGINA ATIVA-->
+                <a class="nav-link" href="#">Pagina inicial</a></li>
+                <a class="nav-link" href="#">Chat</a></li>
+                <a class="nav-link" href="#!">Forúm</a></li></a>
+        </div>
+        
+    </nav>
+    <h1>CADASTRAR VAGAS</h1>
+
+    <div class="container">
+        <div class="row">
+            <div id="msg" class="col-sm-10 offset-sm-1 ">
+            </div>
+        </div>
+
+        <form id="form-contato">
+            <div class="form-group row">
+                <div class="col-sm-12">
+                    <label for="inputId">Id da vaga</label>
+                    <input type="text" class="form-control" id="inputId" placeholder="ID" disabled>
+					<small>Atenção: todos os campos são obrigatórios</small>
+                </div>
+            </div>
+
+            
+
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <label for="inputSobre">Sobre da vaga</label>
+                    <input type="text" class="form-control" id="inputSobre" required placeholder="Breve descrição da vaga e requisitos">
+                </div>
+                <div class="col-sm-6">
+                    <label for="inputHoras">Horas de Trabalho</label>
+                    <input type="time" class="form-control" id="inputHoras" required placeholder="Informe as horas de trabalho">
+                </div>
+
+                <div class="col-sm-6">
+                    <label for="inputSalario">Salário Proposto</label>
+                    <input type="number" class="form-control" id="inputSalario" required placeholder="Digite o salário proposto em R$"> <!--Não aceita pontos e nem virgulas-->
+                </div>
+
+                <div class="col-sm-6">
+                    <label for="inputEmail">E-mail empresarial</label>
+                    <input type="email" class="form-control" id="inputEmail" required placeholder="Informe o e-mail empresarial">
+                </div>
+                <div class="col-sm-6">
+                    <label for="inputEstado">Estado</label> <!--estado quero poder colocar opção-->
+                    <select name="inputEstado" id="inputEstado" onchange="ListaContatos()" class="form-control">
+                        <option value="">Selecione o Estado</option>
+                        <option value="AC">Acre</option>
+                        <option value="AL">Alagoas</option>
+                        <option value="AP">Amapá</option>
+                        <option value="AM">Amazonas</option>
+                        <option value="BA">Bahia</option>
+                        <option value="CE">Ceará</option>
+                        <option value="DF">Distrito Federal</option>
+                        <option value="ES">Espírito Santo</option>
+                        <option value="GO">Goiás</option>
+                        <option value="MA">Maranhão</option>
+                        <option value="MT">Mato Grosso</option>
+                        <option value="MS">Mato Grosso do Sul</option>
+                        <option value="MG">Minas Gerais</option>
+                        <option value="PA">Pará</option>
+                        <option value="PB">Paraíba</option>
+                        <option value="PR">Paraná</option>
+                        <option value="PE">Pernambuco</option>
+                        <option value="PI">Piauí</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="RN">Rio Grande do Norte</option>
+                        <option value="RS">Rio Grande do Sul</option>
+                        <option value="RO">Rondônia</option>
+                        <option value="RR">Roraima</option>
+                        <option value="SC">Santa Catarina</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="SE">Sergipe</option>
+                        <option value="TO">Tocantins</option>
+                        <option value="Estrangeiro">Estrangeiro</option>
+                    </select>
+                </div>
+
+                <!--RETIREI AREA PARA TESTAR A OPÇÃO-->
+                <div class="col-sm-6">
+                    <label for="inputArea">Área</label> <!--Area quero colocar opção e depois aparecer na tela-->
+                    <select name="inputArea" id="inputArea" onchange="ListaContatos()"  class="form-control">
+                        <option value="">Selecione a Área</option>
+                        <option value="Exatas">Ciências Exatas</option>
+                        <option value="Biológicas">Ciências Biológicas</option>
+                        <option value="Letras">Linguística, Letras e Artes</option>
+                        <option value="Ciências Sociais">Ciências Sociais Aplicadas</option>
+                        <option value="Humanas">Ciências Humanas</option>
+                    </select>
+                </div>
+
+                <div class="col-sm-6">
+                    <label for="inputTurno">Turno</label> <!--Turno quero colocar opção e depois aparecer na tela-->
+                    <select name="inputTurno" id="inputTurno" onchange="ListaContatos()"  class="form-control">
+                        <option value="">Selecione o turno</option>
+                        <option value="Manhã">Manhã</option>
+                        <option value="Tarde">Tarde</option>
+                        <option value="Noite">Noite</option>
+                        <option value="Integral">Integral</option>
+                    </select>
+                </div>
+                <div class="col-sm-6">
+                    <label for="inputSite"> Site</label>
+                    <input type="text" class="form-control" id="inputSite" required placeholder="Informe o Web Site da empresa">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-4">
+                    <small></small> <!--deixei vazio para dar um espaço-->
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-12">
+					<input type="button" class="btn btn-success" id="btnInsert" value="Inserir">
+                    <input type="button" class="btn btn-warning" id="btnUpdate" value="Editar">
+                    <input type="button" class="btn btn-danger" id="btnDelete" value="Deletar">
+                    <input type="button" class="btn btn-secondary" id="btnClear" value="Limpar tudo">
+                    <a href="vervagas.html"><input type="button" class="btn btn-warning" id="btnClear" value="Pesquisar Vagas"></a>
+                </div>
+            </div>
+        </form>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <table id="grid-contatos" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">Sobre</th>
+                            <th scope="col">Horas</th>
+                            <th scope="col">Salário</th>
+                            <th scope="col">E-mail</th>
+                            <th scope="col">Estado</th>
+                            <th scope="col">Área</th>
+                            <th scope="col">Turno</th>
+                            <th scope="col">Site</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-contatos">
+                        <tr>
+                            <td scope="row">1</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="vagas.js"></script>
+    <script>
+        function exibeContatos() {
+            // Remove todas as linhas do corpo da tabela
+            $("#table-contatos").html("");
+
+            // Popula a tabela com os registros do banco de dados
+            for (i = 0; i < db.data.length; i++) {
+                let contato = db.data[i];    
+                $("#table-contatos").append(`<tr><td scope="row">${contato.id}</td>
+                                                <td>${contato.sobre}</td>
+                                                <td>${contato.horas}</td>
+                                                <td>${contato.salario}</td>
+                                                <td>${contato.email}</td>
+                                                <td>${contato.estado}</td>
+                                                <td>${contato.area}</td>
+                                                <td>${contato.turno}</td>
+                                                <td>${contato.site}</td>
+                                            </tr>`);
+            }
+        }
+
+        function init() {
+            // Adiciona funções para tratar os eventos 
+            $("#btnInsert").click(function () {
+                // Verfica se o formulário está preenchido corretamente
+                if (!$('#form-contato')[0].checkValidity()) {
+                    displayMessage("Verifique se todos os campos estão preenchidos.");
+                    return;
+                }
+
+                // Obtem os valores dos campos do formulário
+                let campoSobre = $("#inputSobre").val();
+                let campoHoras = $("#inputHoras").val();
+                let campoSalario = $("#inputSalario").val();
+                let campoEmail = $('#inputEmail').val();
+                let campoEstado = $("#inputEstado").val();
+                let campoArea = $('#inputArea').val();
+                let campoTurno = $('#inputTurno').val();
+                let campoSite = $('#inputSite').val();
+                let contato = { 
+                    sobre: campoSobre, 
+                    horas: campoHoras,
+                    salario: campoSalario, 
+                    email: campoEmail, 
+                    estado: campoEstado, 
+                    area: campoArea,
+                    turno: campoTurno,
+                    site: campoSite };
+
+                insertContato(contato);
+
+                // Reexibe os contatos
+                exibeContatos();
+
+                // Limpa o formulario
+                $("#form-contato")[0].reset();
+            });
+
+            // Intercepta o click do botão Alterar
+            $("#btnUpdate").click(function () {
+                // Obtem os valores dos campos do formulário
+                let campoId = $("#inputId").val();
+                if (campoId == "") {
+                    displayMessage("Selecione uma vaga para ser alterada.");
+                    return;
+                }
+                let campoSobre = $("#inputSobre").val();
+                let campoHoras = $("#inputHoras").val();
+                let campoSalario = $("#inputSalario").val();
+                let campoEmail = $("#inputEmail").val();
+                let campoEstado = $("#inputEstado").val();
+                let campoArea = $("#inputArea").val();
+                let campoturno = $("#inputTurno").val();
+                let campoSite = $("#inputSite").val();
+                let contato = { 
+                    sobre: campoSobre, 
+                    horas: campoHoras, 
+                    salario: campoSalario,
+                    email: campoEmail, 
+                    estado: campoEstado, 
+                    area: campoArea,
+                    turno: campoTurno,
+                    site: campoSite 
+                };
+
+                updateContato(parseInt(campoId), contato);
+
+                // Reexibe os contatos
+                exibeContatos();
+
+                // Limpa o formulario
+                $("#form-contato")[0].reset();
+            });
+
+            // Intercepta o click do botão Excluir
+            $("#btnDelete").click(function () {
+                let campoId = $("#inputId").val();
+                if (campoId == "") {
+                    displayMessage("Selecione uma vaga para ser excluída.");
+                    return;
+                }
+                deleteContato(parseInt(campoId));
+
+                // Reexibe os contatos
+                exibeContatos();
+
+                // Limpa o formulario
+                $("#form-contato")[0].reset();
+            });
+
+            // Intercepta o click do botão Listar Contatos
+            $("#btnClear").click(function () {
+                $("#form-contato")[0].reset();
+            });
+
+            // Oculta a mensagem de aviso após alguns segundos
+            $('#msg').bind("DOMSubtreeModified", function () {
+                window.setTimeout(function () {
+                    $(".alert").fadeTo(500, 0).slideUp(500, function () {
+                        $(this).remove();
+                    });
+                }, 5000);
+            });
+
+            // Preenche o formulário quando o usuario clicar em uma linha da tabela 
+            $("#grid-contatos").on("click", "tr", function (e) {
+                let linhaContato = this;
+                colunas = linhaContato.querySelectorAll("td");
+
+                $("#inputId").val(colunas[0].innerText);
+                $("#inputSobre").val(colunas[1].innerText);
+                $("#inputHoras").val(colunas[2].innerText);
+                $("#inputSalario").val(colunas[3].innerText); 
+                $("#inputEmail").val(colunas[4].innerText);
+                $("#inputEstado").val(colunas[5].innerText);
+                $("#inputArea").val(colunas[6].innerText);
+                $("#inputTurno").val(colunas[7].innerText);
+                $("#inputSite").val(colunas[8].innerText);
+            });
+
+            exibeContatos();
+        }
+    </script>
+
+    <!-- Footer -->
+    <footer>
+      <section>
+    <div class="text-center p-3 pl-0 navbar-dark" style="background-color: rgb(101, 86, 222);">
+        <div class="row">
+            <div class="col-12">
+                <p>©INprego - Todos os direitos reservados - 2022</p>
+            </div>
+            
+        </div>
+    </div>
+  </footer>
+
+
+</body>
+
+</html>

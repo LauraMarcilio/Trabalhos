@@ -1,3 +1,96 @@
+label {
+    font-weight: bolder;
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+::placeholder {
+    color: rgb(63, 59, 59) !important;
+    opacity: 3;
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:  rgb(63, 59, 59) !important;
+    font-family: Arial, Helvetica, sans-serif !important; /*placeholder*/
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:  rgb(63, 59, 59) !important;
+    opacity:  3;
+    font-family: Arial, Helvetica, sans-serif !important;
+ }
+
+ select {
+     color: rgb(63, 59, 59) !important;
+     font-family: Arial, Helvetica, sans-serif !important;
+ }
+ #msg {
+     height: 60px;
+ }
+ #grid-contatos tbody {
+     cursor: pointer;
+ }
+
+/*botões*/
+
+.button{
+    border-style: none;
+    height: 40px;
+    padding: 6px 12px;
+    background-color: black;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: box-shadow .6s ease;
+    font-family:Helvetica,Arial,sans-serif !important;
+}
+
+#btnInsert {
+ background-color: rgb(101, 86, 222)!important;
+ color: white;
+ font-family:Helvetica,Arial,sans-serif !important;
+}
+
+#btnUpdate {
+    background-color: rgb(101, 86, 222)!important;
+    color: white;
+    font-family:Helvetica,Arial,sans-serif !important;
+}
+
+#btnDelete {
+    background-color: rgb(101, 86, 222)!important;
+    color: rgb(255, 255, 255);
+    font-family:Helvetica,Arial,sans-serif !important;
+}
+
+#btnClear {
+    background-color: rgb(101, 86, 222)!important;
+    color: white;
+    font-family:Helvetica,Arial,sans-serif !important;
+}
+
+.button:hover{
+    box-shadow: inset 200px 0 0 #765dda55;
+}
+
+.btn btn-success{
+    background-color: rgb(101, 86, 222)!important;
+    font-family:Helvetica,Arial,sans-serif !important;
+}
+
+.btn btn-warning{
+    background-color: rgb(101, 86, 222)!important;
+    font-family:Helvetica,Arial,sans-serif !important;
+}
+
+.btn btn-danger{
+    background-color: rgb(101, 86, 222)!important;
+    font-family:Helvetica,Arial,sans-serif !important;
+}
+
+.btn btn-secondary{
+    background-color: rgb(101, 86, 222)!important;
+}
+
+/*acaba botões*/
+
 /*fontes*/
 h1 {
     text-align: center;
@@ -10,6 +103,11 @@ h2{
 
 h3{
    font-family: Helvetica,Arial,sans-serif !important;
+}
+
+p{
+    font-family: Helvetica,Arial,sans-serif !important;
+    color: white !important;
 }
 /*fim de fontes*/
 /*NAV*/
@@ -97,127 +195,8 @@ h3{
 /*FIM DO NAV*/
 
 
-/*BOTÕES*/
-/*botões*/
-
-.button{
-    border-style: none;
-    height: 40px;
-    padding: 6px 12px;
-    background-color: black;
-    color: white;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: box-shadow .6s ease;
-    font-family:Helvetica,Arial,sans-serif !important;
-}
-
-.button:hover{
-    box-shadow: inset 200px 0 0 #f6f6f855 !important;
-}
-
-.btn btn-success{
-    background-color: rgb(101, 86, 222)!important;
-    font-family:Helvetica,Arial,sans-serif !important;
-}
-
-.btn btn-warning{
-    background-color: rgb(101, 86, 222)!important;
-    font-family:Helvetica,Arial,sans-serif !important;
-}
-
-.btn btn-danger{
-    background-color: rgb(101, 86, 222)!important;
-    font-family:Helvetica,Arial,sans-serif !important;
-}
-
-.btn btn-secondary{
-    background-color: rgb(101, 86, 222)!important;
-}
-
-#btnCadastro {
-    background-color: rgb(101, 86, 222)!important;
-    color: white;
-    font-family:Helvetica,Arial,sans-serif !important;
-    
-}
-
-#btnInsert {
-    background-color: rgb(101, 86, 222)!important;
-    color: white;
-    font-family:Helvetica,Arial,sans-serif !important;
-    
-}
-
-
-/*acaba botões*/
-
-
-
-
-
-/*ASTYLE*/
-
-body{
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: rgb(255, 255, 255);
-}
 .logo{
     max-width: 100px;
-}
-header{
-    margin-bottom: 10px;
-    background-color: rgb(101,86,222);
-}
-footer{
-    color: white;
-    margin-top: 10px;
-    padding: 10px;
-    background-color: rgb(101,86,222);
-    
-}   
-
-.menu1{
-    position: absolute;
-    top: 7px;
-    left: 58%;
-    
-}
-
-.menu1 a{color: white;}
-
-.btn{
-    background-color: rgb(101,86,222);
-    color: #fff;
-}
-
-/*.btn :hover {
-    background-color: rgb(25, 17, 87);
-}
-
-
-
-/*select*/
-::placeholder {
-    color: rgb(63, 59, 59) !important;
-    opacity: 3;
-    font-family: Arial, Helvetica, sans-serif !important;
-}
-::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-    color:  rgb(63, 59, 59) !important;
-    font-family: Arial, Helvetica, sans-serif !important; /*placeholder*/
-}
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-    color:  rgb(63, 59, 59) !important;
-    opacity:  3;
-    font-family: Arial, Helvetica, sans-serif !important;
- }
-
- /*footer*/
-
- p{
-    font-family: Helvetica,Arial,sans-serif !important;
-    color: white !important;
 }
 
 footer{
